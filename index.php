@@ -95,7 +95,7 @@ if (!isset($_GET['ordem'])) {
                 </tbody>
             </table>
 
-            <?php else : $id = $_GET['id']; $id -= 1; ?>
+            <?php elseif ($_GET['id'] < count($cliente)) : $id = $_GET['id']; $id -= 1; ?>
 
                 <p><b>Nome: </b><?php echo $cliente[$id]->nome ?></p>
                 <p><b>E-mail: </b><?php echo $cliente[$id]->email ?></p>
@@ -103,6 +103,8 @@ if (!isset($_GET['ordem'])) {
                 <p><b>CPF: </b><?php echo $cliente[$id]->cpf ?></p>
                 <p><b>RG: </b><?php echo $cliente[$id]->rg ?></p>
 
+            <?php else : ?>
+                <p><b>Cliente não encontrado.</b></p>
                 <a href="/">Voltar</a>
 
             <?php endif ?>
